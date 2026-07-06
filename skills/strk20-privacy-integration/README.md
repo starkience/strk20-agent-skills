@@ -1,0 +1,25 @@
+# strk20-privacy-integration
+
+An ask-and-plan agent skill (Claude Code / Codex-compatible) that kick-starts an STRK20 privacy integration for Starknet projects.
+
+Drop it into the agent running in your project repo and ask it to "plan STRK20 privacy for this app." The skill:
+
+1. **Scans your repo** — detects your Starknet stack (starknet.js, get-starknet, starknet-react, Scarb/Cairo contracts, Starknet Foundry, backend SDKs) and finds the plug-in points.
+2. **Interviews you** — a short, adaptive set of questions (builder type, what exactly should be private, environment) instead of a generic questionnaire.
+3. **Picks your route** — Privacy Wallet API via starknet.js (most dapps, buildable now), anonymizer contract + Wallet API (DeFi protocols), Privacy SDK direct (wallets/backends with their own keys, coming soon), or private sub-accounts (tracked, not builder-ready).
+4. **Writes `STRK20_INTEGRATION_PLAN.md`** — phased, versioned, honest about what's hidden vs visible, naming your actual files.
+
+Scope: **Starknet apps only** for now. EVM and app-archetype flows (e.g. prediction markets) are planned for later versions.
+
+## Contents
+
+- `SKILL.md` — the scan → ask → route → plan workflow and accuracy rules
+- `references/concepts.md` — STRK20 mental model, hidden-vs-visible, wording rules
+- `references/starknet-dev-context.md` — standard Starknet toolchain detection map
+- `references/wallet-api-route.md` — the buildable-now dapp route
+- `references/anonymizer-route.md` — the DeFi route
+- `references/sdk-route.md` — the SDK route + sub-accounts
+- `references/links.md` — all links and pinned versions
+- `references/plan-template.md` — the output plan template
+
+Statuses baked into this skill are as of early July 2026; the skill instructs the agent to re-verify fast-moving items (SDK repo publicity, wallet readiness, package versions) before finalizing a plan.
