@@ -20,7 +20,13 @@ npx skills add starkience/strk20-agent-skills --skill strk20-privacy-integration
 
 An ask-and-plan skill. Run your agent inside your Starknet project and ask it to "plan STRK20 privacy for this app." It scans your repo (starknet.js, get-starknet, starknet-react, Cairo/Scarb, Starknet Foundry, backend SDKs), interviews you about what exactly should be private, picks the right integration route — Privacy Wallet API via starknet.js (most dapps), anonymizer contract + Wallet API (DeFi protocols), Privacy SDK direct (wallets/backends), or private sub-accounts (tracked) — and writes a phased, versioned `STRK20_INTEGRATION_PLAN.md` that names your actual files.
 
-Scope: Starknet apps. EVM and app-archetype flows (e.g. prediction markets) are planned for later versions.
+Scope: Starknet apps.
+
+## Roadmap (not yet in the skill)
+
+- **EVM wallet support** — planned after internal audit and a contract upgrade
+- **Polymarket-type app interop** — a dedicated flow for prediction-market-style apps
+- **Frontend design guidance** — privacy UX patterns (shield/unshield affordances, honest private-vs-public labeling)
 
 ## Status
 

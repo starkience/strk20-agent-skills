@@ -73,4 +73,4 @@ Generated <date> by the strk20-privacy-integration skill. Statuses below were cu
 <Relevant subset of references/links.md, with versions.>
 ```
 
-After writing the file, summarize it to the developer in chat: the route, the one-sentence why, and the very next action they can take today.
+After writing the file, summarize it to the developer in chat: the route, the one-sentence why, and the very next action they can take today. Then stop — do not start implementing, installing packages, or generating contracts. Offer to begin Phase 1 and wait for their go-ahead.

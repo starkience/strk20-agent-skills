@@ -20,7 +20,7 @@ Before starting, read `references/concepts.md` — what STRK20 hides, what stays
 
 ## Scope (current version)
 
-**Starknet apps only.** If the project is on an EVM chain or elsewhere: say that EVM routes for STRK20 are planned (after internal audit and a contract upgrade) but not builder-ready, suggest tracking STRK20 announcements, and stop — do not improvise an EVM plan. If the project is multichain, plan only the Starknet side.
+**Starknet apps only.** If the project is on an EVM chain or elsewhere: say that EVM routes for STRK20 are coming later (after internal audit and a contract upgrade), suggest tracking STRK20 announcements, and stop — do not improvise an EVM plan. If the project is multichain, plan only the Starknet side.
 
 ## Step 1 — Scan the open project
 
@@ -55,9 +55,11 @@ This is the heart of the skill. Rules:
 
 - DeFi answers → which specific actions, on their own contracts or someone else's protocol, and who would own/audit a helper contract.
 - Backend-managed accounts → can the service store secrets (a viewing key) safely? That gates the SDK route.
-- "Hide the user↔account link" → set expectations immediately: that is sub-accounts, not builder-ready yet (see Step 3).
+- "Hide the user↔account link" → set expectations immediately: that is sub-accounts, which are coming soon — nothing to build against today (see Step 3).
 
 Stop asking as soon as the route is unambiguous. Do not proceed to the plan while the privacy goal is still vague — "add privacy" is not a goal; "hide who pays whom" is.
+
+**Close the interview with a what-happens-next message.** Before writing anything, tell the developer explicitly what comes next, e.g.: "Thanks — I have what I need. Next I'll write `STRK20_INTEGRATION_PLAN.md` into your repo root. That's a plan, not code: I won't modify your app, install packages, or build any contracts (an anonymizer contract in particular is your team's own code to build, review, and audit — this skill never generates it for you). Review the plan, and when you're ready we start with Phase 1." Never jump from the questionnaire straight into implementation.
 
 ## Step 3 — Route
 
@@ -66,7 +68,7 @@ Stop asking as soon as the route is unambiguous. Do not proceed to the plan whil
 | Normal dapp relying on the user's wallet | **Privacy Wallet API via starknet.js** — the dapp asks the user's privacy-enabled wallet to act; it never touches viewing keys | **Buildable now** (starknet.js v10.4.0 + get-starknet v6.0.2 + Ready extension) | `references/wallet-api-route.md` |
 | DeFi protocol / team with own contracts | **App-specific anonymizer contract + Privacy Wallet API** — shield/transfer/unshield/swap work through the Wallet API alone; protocol-specific actions need your own anonymizer contract | Wallet API part buildable now; reference anonymizer examples ship with the SDK repo (coming soon) — design now, build when public | `references/anonymizer-route.md` |
 | Wallet / advanced integrator / backend with its own accounts and keys | **Privacy SDK direct** (TypeScript) — full control of registration, proving, discovery, note management | **Coming soon** — repo opens after the v0.14.3/onchain-screening upgrade; the open-source Prover Crate and Wallet API spec are readable today | `references/sdk-route.md` |
-| Unlinkable accounts for DeFi (hide user↔account link) | **Private sub-accounts** | **Not builder-ready** — wallet, SDK, and an additional Wallet API call still required; scope and track | `references/sdk-route.md` (sub-accounts section) |
+| Unlinkable accounts for DeFi (hide user↔account link) | **Private sub-accounts** | **Coming soon** — wallet, SDK, and an additional Wallet API call are on the way; nothing to build against yet, so scope and track | `references/sdk-route.md` (sub-accounts section) |
 
 The split is absolute and follows one rule: **a dapp must never touch the user's viewing key.** The SDK requires the viewing key in the clear; wallets will never expose it. Anything that relies on a user's wallet therefore goes through starknet.js — the Privacy Wallet API is wallet-facing plumbing underneath, so pitch the route to the team as "use starknet.js," not "implement a wallet API". Only teams that own their accounts and can store viewing keys safely use the SDK directly.
 

@@ -41,7 +41,7 @@ What the dapp **cannot** do: read shielded balances or history (no viewing key),
 
 3. **Wire the STRK20 actions** (shield / private transfer / unshield / swap) into the app's transaction layer where the plan identified plug-in points.
 
-4. **Handle the no-privacy-wallet case.** Today the wallet to test against is the **Ready extension**; Xverse's dapp-facing Wallet API is in progress; other wallets are not current routes. The dapp should detect a wallet without privacy support and degrade gracefully (hide private actions or prompt for a supported wallet) — check the guide for the capability-detection mechanism.
+4. **Handle the no-privacy-wallet case.** Wallet scope is **Ready and Xverse only**: test against the Ready extension today; Xverse's dapp-facing Wallet API is in progress. Braavos, Privy, and other wallets or embedded-wallet providers are not prepared for STRK20 — treat them as unsupported and don't plan around them. The dapp should detect a wallet without privacy support and degrade gracefully (hide private actions or prompt for a supported wallet) — check the guide for the capability-detection mechanism.
 
 5. **Test** against the Ready extension and sanity-check behavior against the wallet test dapp: https://starknet-wallet-account.vercel.app/
 

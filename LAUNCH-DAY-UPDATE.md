@@ -30,7 +30,7 @@ The Privacy SDK monorepo open-sources on Wed Jul 8, 2026. This checklist flips e
 ## 4. `skills/strk20-privacy-integration/references/sdk-route.md`
 
 - [ ] "Status and what to do today": repo is public — add clone/install pointers from the repo's own README (don't restate; link).
-- [ ] Keep sub-accounts as not-builder-ready unless the launch says otherwise (verify).
+- [ ] Keep sub-accounts marked coming-soon unless the launch says otherwise (verify).
 
 ## 5. `skills/strk20-privacy-integration/README.md` + root `README.md`
 
