@@ -42,7 +42,7 @@ The Privacy SDK monorepo open-sources on Wed Jul 8, 2026. This checklist flips e
 
 - [x] Note the update in the root README or a CHANGELOG (v0.2.0 — post-launch statuses).
 - [x] Commit and push.
-- [ ] Sanity-check install: `npx skills add starkience/strk20-agent-skills` in a scratch project.
+- [x] Sanity-check install: `npx skills add starkience/strk20-agent-skills` in a scratch project. → **OK 2026-07-13: installs, and the installed `links.md` carries the post-launch quickstart link.**
 
 ## Wording rules that do NOT change on launch day
 
