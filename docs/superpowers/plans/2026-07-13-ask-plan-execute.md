@@ -29,7 +29,7 @@
 **Interfaces:**
 - Produces: the file that Task 3's Step 5 section, Task 4's plan-template closing, and Task 5's route pointers reference by the exact path `references/execute.md`; section headings "Manual checklist templates" and "Plan-file conventions" are referenced by name in later tasks' text.
 
-- [ ] **Step 1: Write the file with exactly this content**
+- [x] **Step 1: Write the file with exactly this content**
 
 ````markdown
 # Execute — the phase-by-phase build loop (Step 5)
@@ -93,7 +93,7 @@ Hand over only the items the phase actually built; adapt names to their app.
 - Version drift found during re-verify: update §4 Prerequisites and note the change under Open items.
 ````
 
-- [ ] **Step 2: Verify the file landed**
+- [x] **Step 2: Verify the file landed**
 
 Run: `grep -c "^## " skills/strk20-privacy-integration/references/execute.md`
 Expected: `5` (five H2 sections)
@@ -101,7 +101,7 @@ Expected: `5` (five H2 sections)
 Run: `grep -n "escrow" skills/strk20-privacy-integration/references/execute.md`
 Expected: no output (exit 1) — execute.md never mentions escrow.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add skills/strk20-privacy-integration/references/execute.md
@@ -118,7 +118,7 @@ git commit -m "v0.3.0: add references/execute.md — phase-gated execution playb
 **Interfaces:**
 - Produces: section heading `## strk20-by-example.org deep links` — referenced by that name from SKILL.md (Task 3) and the route files (Task 5).
 
-- [ ] **Step 1: Insert this section immediately before the `## Support` heading**
+- [x] **Step 1: Insert this section immediately before the `## Support` heading**
 
 ```markdown
 ## strk20-by-example.org deep links
@@ -147,7 +147,7 @@ https://strk20-by-example.org/ is the official by-example tutorial site. Wheneve
 **Exclusion — do not cite:** `https://strk20-by-example.org/helpers/escrow`. The page references a `packages/escrow` that does not exist in the SDK monorepo (verified absent 2026-07-13). Re-check on future runs; lift this only when the repo actually ships an escrow package.
 ```
 
-- [ ] **Step 2: Verify**
+- [x] **Step 2: Verify**
 
 Run: `grep -c "strk20-by-example.org" skills/strk20-privacy-integration/references/links.md`
 Expected: `20` (1 intro + 17 table URLs (16 rows, one row has a pattern URL) + 1 exclusion + 1 heading mention = count must be ≥ 18; exact count 20 if matching this content verbatim)
@@ -155,7 +155,7 @@ Expected: `20` (1 intro + 17 table URLs (16 rows, one row has a pattern URL) + 1
 Run: `grep -n "helpers/escrow" skills/strk20-privacy-integration/references/links.md`
 Expected: exactly one line — the exclusion.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add skills/strk20-privacy-integration/references/links.md
@@ -173,7 +173,7 @@ git commit -m "v0.3.0: strk20-by-example.org deep-link map (with escrow exclusio
 - Consumes: `references/execute.md` (Task 1), `## strk20-by-example.org deep links` in links.md (Task 2).
 - Produces: section heading `## Step 5 — Execute (only after the plan is approved)` — referenced by plan-template.md (Task 4).
 
-- [ ] **Step 1: Replace the frontmatter description**
+- [x] **Step 1: Replace the frontmatter description**
 
 Old:
 ```
@@ -185,7 +185,7 @@ New:
 description: Ask, plan & execute skill for adding STRK20 privacy to a Starknet project. Use when a developer wants to add privacy to the Starknet app open in this session — private/shielded transfers, confidential balances, private payments, private swaps or DeFi, hiding user↔account links — mentions STRK20, privacy pool, shielding, viewing keys, or the Privacy Wallet API, or wants an existing STRK20_INTEGRATION_PLAN.md executed. Inspects the open repo, interviews the developer, picks the right integration route, writes a repo-specific integration plan, and — after the developer approves it — executes the plan phase by phase (app code only, never Cairo contracts).
 ```
 
-- [ ] **Step 2: Replace the intro paragraph**
+- [x] **Step 2: Replace the intro paragraph**
 
 Old:
 ```
@@ -197,7 +197,7 @@ New:
 This is an **ask, plan & execute** skill. You are running inside the developer's own project. Your first deliverable is a conversation that converges on the right integration route and a concrete, repo-specific plan written to `STRK20_INTEGRATION_PLAN.md`; code changes begin only after the developer approves that plan (Step 5). Everything you ask, plan, and build should be grounded in what is actually in the open repo.
 ```
 
-- [ ] **Step 3: Extend the loop list**
+- [x] **Step 3: Extend the loop list**
 
 Old:
 ```
@@ -210,7 +210,7 @@ New:
 5. **Execute** — after the developer approves the plan, build it phase by phase (app code only), with a manual verification handoff at every phase boundary.
 ```
 
-- [ ] **Step 4: Add the linking rule after the "Before starting…" paragraph**
+- [x] **Step 4: Add the linking rule after the "Before starting…" paragraph**
 
 Insert as a new paragraph directly after the paragraph that begins `Before starting, read `references/concepts.md``:
 
@@ -218,7 +218,7 @@ Insert as a new paragraph directly after the paragraph that begins `Before start
 **Linking rule (all steps):** https://strk20-by-example.org/ is the official by-example tutorial site. Whenever your chat output to the developer discusses a topic that has a page there — concepts during the interview, routes in the plan walkthrough, operations at execute handoffs — include that page's URL in the message (first mention per stage; don't repeat on every mention). The topic→URL map is the "strk20-by-example.org deep links" section of `references/links.md`. Never cite `/helpers/escrow` (see the exclusion note there).
 ```
 
-- [ ] **Step 5: Replace the Step 2 closing message**
+- [x] **Step 5: Replace the Step 2 closing message**
 
 Old:
 ```
@@ -230,7 +230,7 @@ New:
 **Close the interview with a what-happens-next message.** Before writing anything, tell the developer explicitly what comes next, e.g.: "Thanks — I have what I need. Next I'll write `STRK20_INTEGRATION_PLAN.md` into your repo root. Nothing in your app changes until you review and approve that plan. Once you approve it, I execute it phase by phase — app code only: I can install packages and wire your frontend or backend, but an anonymizer contract is your team's own code to build, review, and audit — this skill never generates it for you. Each phase ends with a short manual check you run with your wallet before we continue." Never jump from the questionnaire straight into implementation.
 ```
 
-- [ ] **Step 6: Add Step 5 section between "## Step 4 — Plan" content and "## Accuracy rules"**
+- [x] **Step 6: Add Step 5 section between "## Step 4 — Plan" content and "## Accuracy rules"**
 
 ```markdown
 ## Step 5 — Execute (only after the plan is approved)
@@ -254,7 +254,7 @@ Read `references/execute.md` before the first phase — it holds the full loop, 
 - **UX copy written during execution follows `references/concepts.md`** — honest hidden-vs-visible labeling, no compliance framing, no screening-workaround framing.
 ```
 
-- [ ] **Step 7: Verify**
+- [x] **Step 7: Verify**
 
 Run: `grep -c "Step 5" skills/strk20-privacy-integration/SKILL.md`
 Expected: ≥ 4 (intro, loop mention, heading, guardrail back-reference)
@@ -265,7 +265,7 @@ Expected: no output — no stale naming.
 Run: `grep -c "strk20-by-example.org" skills/strk20-privacy-integration/SKILL.md`
 Expected: ≥ 2 (linking rule + Step 5 handoff mention)
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add skills/strk20-privacy-integration/SKILL.md
@@ -282,7 +282,7 @@ git commit -m "v0.3.0: SKILL.md — Step 5 Execute, linking rule, updated interv
 **Interfaces:**
 - Consumes: `## Step 5 — Execute (only after the plan is approved)` in SKILL.md (Task 3); "Plan-file conventions" in execute.md (Task 1).
 
-- [ ] **Step 1: Update the Links section placeholder inside the template**
+- [x] **Step 1: Update the Links section placeholder inside the template**
 
 Old:
 ```
@@ -294,7 +294,7 @@ New:
 <Relevant subset of references/links.md, with versions, plus the strk20-by-example.org pages for the chosen route (deep-link map in references/links.md — never the escrow page).>
 ```
 
-- [ ] **Step 2: Replace the closing paragraph**
+- [x] **Step 2: Replace the closing paragraph**
 
 Old:
 ```
@@ -306,12 +306,12 @@ New:
 After writing the file, summarize it to the developer in chat: the route, the one-sentence why, and the very next action they can take today — including the strk20-by-example.org links for the chosen route. Then stop — do not start implementing, installing packages, or generating contracts until the developer approves the plan. On approval, move to Step 5 (Execute) of `SKILL.md`: phases run one at a time and are marked off in this file (`✅ done <date>` on the phase heading, drift and blockers under Open items) per the plan-file conventions in `references/execute.md`.
 ```
 
-- [ ] **Step 3: Verify**
+- [x] **Step 3: Verify**
 
 Run: `grep -c "execute.md\|Step 5" skills/strk20-privacy-integration/references/plan-template.md`
 Expected: ≥ 2
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add skills/strk20-privacy-integration/references/plan-template.md
@@ -329,7 +329,7 @@ git commit -m "v0.3.0: plan template — approval gate wording, phase-status con
 **Interfaces:**
 - Consumes: "Manual checklist templates" in execute.md (Task 1); deep-link map (Task 2).
 
-- [ ] **Step 1: Append to `wallet-api-route.md`**
+- [x] **Step 1: Append to `wallet-api-route.md`**
 
 ```markdown
 ## Executing this route (Step 5)
@@ -337,7 +337,7 @@ git commit -m "v0.3.0: plan template — approval gate wording, phase-status con
 At each phase handoff use the **Wallet API route** manual checklist in `references/execute.md`. By-example pages to link during interview, plan walkthrough, and handoffs: https://strk20-by-example.org/starknet-wallet-api/overview, https://strk20-by-example.org/starknet-wallet-api/starknet-js, and for React apps https://strk20-by-example.org/starknet-wallet-api/starknet-start-hook.
 ```
 
-- [ ] **Step 2: Insert into `sdk-route.md` before the Sub-accounts section**
+- [x] **Step 2: Insert into `sdk-route.md` before the Sub-accounts section**
 
 ```markdown
 ## Executing this route (Step 5)
@@ -345,12 +345,12 @@ At each phase handoff use the **Wallet API route** manual checklist in `referenc
 At each phase handoff use the **SDK route** manual checklist in `references/execute.md` (env/key-custody check first — no secrets in the diff, ever). By-example pages to link: https://strk20-by-example.org/sdk/getting-started, https://strk20-by-example.org/sdk/setup-requirements, and the per-operation pages (`/sdk/register`, `/sdk/deposit`, `/sdk/transfer`, `/sdk/withdraw`, `/sdk/proving-config`, …) as each flow comes up.
 ```
 
-- [ ] **Step 3: Verify**
+- [x] **Step 3: Verify**
 
 Run: `grep -l "Executing this route" skills/strk20-privacy-integration/references/*.md`
 Expected: exactly `wallet-api-route.md` and `sdk-route.md`.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add skills/strk20-privacy-integration/references/wallet-api-route.md skills/strk20-privacy-integration/references/sdk-route.md
@@ -365,25 +365,25 @@ git commit -m "v0.3.0: route files — Step 5 checklist pointers + by-example li
 - Modify: `skills/strk20-privacy-integration/README.md` (intro line, numbered list, Contents list)
 - Modify: `README.md` (skill description paragraph, Changelog section)
 
-- [ ] **Step 1: Skill README intro**
+- [x] **Step 1: Skill README intro**
 
 Old: `An ask-and-plan agent skill (Claude Code / Codex-compatible) that kick-starts an STRK20 privacy integration for Starknet projects.`
 
 New: `An ask, plan & execute agent skill (Claude Code / Codex-compatible) that kick-starts — and, once you approve the plan, builds — an STRK20 privacy integration for Starknet projects.`
 
-- [ ] **Step 2: Skill README numbered list — add item 5 after item 4**
+- [x] **Step 2: Skill README numbered list — add item 5 after item 4**
 
 ```markdown
 5. **Executes on your approval** — builds the plan phase by phase (app code only; anonymizer contracts remain your team's own code to write and audit), with headless checks per phase and a short manual wallet check handed to you at every phase boundary. Chat output links the relevant https://strk20-by-example.org/ pages throughout.
 ```
 
-- [ ] **Step 3: Skill README Contents list — add after the links.md line**
+- [x] **Step 3: Skill README Contents list — add after the links.md line**
 
 ```markdown
 - `references/execute.md` — the Step 5 execution playbook (phase loop, verification, manual checklists, failure protocol)
 ```
 
-- [ ] **Step 4: Root README skill description**
+- [x] **Step 4: Root README skill description**
 
 Old paragraph starting `An ask-and-plan skill. Run your agent inside your Starknet project…` — replace the first sentence and extend the end:
 
@@ -392,7 +392,7 @@ New paragraph:
 An ask, plan & execute skill. Run your agent inside your Starknet project and ask it to "plan STRK20 privacy for this app." It scans your repo (starknet.js, get-starknet, starknet-react, Cairo/Scarb, Starknet Foundry, backend SDKs), interviews you about what exactly should be private, picks the right integration route — Privacy Wallet API via starknet.js (most dapps), anonymizer contract + Wallet API (DeFi protocols), Privacy SDK direct (wallets/backends), or private sub-accounts (tracked) — and writes a phased, versioned `STRK20_INTEGRATION_PLAN.md` that names your actual files. Once you approve the plan, it executes it phase by phase — app code only, never Cairo contracts — with a manual wallet-verification handoff at every phase boundary, linking the matching https://strk20-by-example.org/ tutorial pages as it goes.
 ```
 
-- [ ] **Step 5: Root README changelog — add at top of the list**
+- [x] **Step 5: Root README changelog — add at top of the list**
 
 ```markdown
 - **v0.3.0** (2026-07-13) — Ask & Plan & Execute: new Step 5 executes the approved plan phase by phase (app code only, never Cairo; phase-gate handoffs with manual wallet checks; new `references/execute.md`), plus strk20-by-example.org deep links throughout chat output.
@@ -400,7 +400,7 @@ An ask, plan & execute skill. Run your agent inside your Starknet project and as
 
 Also update the `## Status` line `**v0.2.0** — statuses as of mid-July 2026…` to begin `**v0.3.0** — Ask & Plan & Execute. Statuses as of mid-July 2026…` (keep the rest of the paragraph unchanged).
 
-- [ ] **Step 6: Verify**
+- [x] **Step 6: Verify**
 
 Run: `grep -rn "ask-and-plan" README.md skills/`
 Expected: no output — stale naming fully gone.
@@ -408,7 +408,7 @@ Expected: no output — stale naming fully gone.
 Run: `grep -c "v0.3.0" README.md`
 Expected: `2` (status + changelog)
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add README.md skills/strk20-privacy-integration/README.md
@@ -422,7 +422,7 @@ git commit -m "v0.3.0: READMEs — Ask & Plan & Execute description + changelog"
 **Files:**
 - No new modifications expected (fixes only if the sweep finds issues).
 
-- [ ] **Step 1: Consistency sweep**
+- [x] **Step 1: Consistency sweep**
 
 Run: `grep -rn "ask-and-plan\|coming soon — design now\|do not start implementing, installing packages, or generating contracts. Offer" skills/ README.md`
 Expected: no output.
@@ -430,18 +430,18 @@ Expected: no output.
 Run: `grep -rn "strk20-by-example.org/helpers/escrow" skills/ README.md`
 Expected: exactly one hit — the exclusion line in `references/links.md`.
 
-- [ ] **Step 2: Spot-check live links (SPA returns 200 on all routes)**
+- [x] **Step 2: Spot-check live links (SPA returns 200 on all routes)**
 
 Run: `for p in what-is-strk20 starknet-wallet-api/starknet-js sdk/getting-started helpers/privacy-invoke; do curl -s -o /dev/null -w "%{http_code} $p\n" "https://strk20-by-example.org/$p"; done`
 Expected: four lines of `200 …`.
 
-- [ ] **Step 3: Push**
+- [x] **Step 3: Push**
 
 ```bash
 git push
 ```
 
-- [ ] **Step 4: Install sanity-check in a scratch dir**
+- [x] **Step 4: Install sanity-check in a scratch dir**
 
 Run (from the session scratchpad): `mkdir -p install-test-v030 && cd install-test-v030 && npx -y skills add starkience/strk20-agent-skills --skill strk20-privacy-integration -y`
 Expected: "Installed 1 skill".
@@ -449,7 +449,7 @@ Expected: "Installed 1 skill".
 Run: `grep -c "Step 5" .agents/skills/strk20-privacy-integration/SKILL.md && test -f .agents/skills/strk20-privacy-integration/references/execute.md && echo EXECUTE-OK`
 Expected: a number ≥ 4, then `EXECUTE-OK`.
 
-- [ ] **Step 5: Mark the plan done**
+- [x] **Step 5: Mark the plan done**
 
 Tick all checkboxes in this plan file, commit:
 ```bash
