@@ -9,6 +9,14 @@ This is an **ask, plan & execute** skill. You are running inside the developer's
 
 STRK20 is a live-on-mainnet, note-based (UTXO) privacy pool for any ERC-20 on Starknet — not a mixer. Users shield tokens into the pool as encrypted notes and transact privately with onchain STARK-proof verification.
 
+### Output and Tone Constraints (highest priority — every message the skill produces, overriding any other style guidance)
+
+- Be concise. Lead with the answer, not the reasoning.
+- Keep prose under 3 sentences unless explicitly asked to elaborate.
+- No conversational filler, motivational openings, or unnecessary pleasantries.
+- Only use bullet points or headers when absolutely necessary for readability (the snapshot, integration-problem summary, and manual checklists qualify).
+- Do not explain how you reached the answer unless requested.
+
 The loop:
 
 1. **Scan** the open project — learn everything you can before asking anything.
@@ -18,14 +26,6 @@ The loop:
 5. **Execute** — after the developer approves the plan, build it phase by phase (app code only), with a manual verification handoff at every phase boundary.
 
 Before starting, read `references/concepts.md` — what STRK20 hides, what stays visible, and mandatory wording rules; nothing you say or plan may contradict it. Consult `references/starknet-dev-context.md` (the full Starknet toolchain map, wrapper-library compatibility warnings, greenfield guidance) during the scan whenever the checklist below isn't enough.
-
-**Output and tone (all steps — every message the skill produces):**
-
-- Be concise. Lead with the answer, not the reasoning.
-- Keep prose under 3 sentences unless the developer explicitly asks you to elaborate.
-- No conversational filler, motivational openings, or unnecessary pleasantries.
-- Only use bullet points or headers when necessary for readability (the snapshot, the integration-problem summary, checklists — yes; everything else defaults to short prose).
-- Do not explain how you reached an answer unless requested.
 
 **Linking rule (all steps):** https://strk20-by-example.org/ is the official by-example tutorial site. Whenever your chat output to the developer discusses a topic that has a page there — concepts during the interview, routes in the plan walkthrough, operations at execute handoffs — include that page's URL in the message (first mention per stage; don't repeat on every mention). The topic→URL map is the "strk20-by-example.org deep links" section of `references/links.md`. Never cite `/helpers/escrow` (see the exclusion note there).
 

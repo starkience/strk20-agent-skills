@@ -24,7 +24,7 @@ Pitch it to the team as "use starknet.js" — most dapps never need to know the 
 
 Anything protocol-specific beyond these (lend, stake, LP, vault deposits) additionally needs an anonymizer contract — see `references/anonymizer-route.md`.
 
-What the dapp **cannot** do: read shielded balances or history (no viewing key), manage notes, or generate proofs. Design UI around requesting actions; verify against the current WalletAccount guide what state the wallet exposes back to dapps.
+What the dapp **cannot** do: hold the viewing key, manage notes, or generate proofs. It **can** request wallet-mediated reads: `WalletAccountV6.strk20Balances(tokens)` returns shielded balances through the wallet, so balance UX is possible without the app ever seeing a key — confirm the wallet's consent behavior against the Ready extension before designing around it.
 
 ## Integration recipe
 
@@ -52,6 +52,12 @@ From the repo scan, identify and name:
 - The **wallet-connection module** (where `connect()` lives — get-starknet upgrade lands here). For starknet-react/starknetkit apps this is the provider/kit config; verify the wrapper's compatibility with starknet.js v10.4.0 first (see `references/starknet-dev-context.md`).
 - The **transaction layer** (where the app builds and sends calls — `WalletAccountV6` actions land here).
 - The **UI surfaces** that gain shield/unshield/private-send affordances, plus honest labeling of what's private vs public per `references/concepts.md`.
+
+## Integration gotchas (verified 2026-07-13 against `starknet@10.4.0` + get-starknet 6.0.2)
+
+- Import the wallet type from the subpath: `import type { WalletWithStarknetFeatures } from "@starknet-io/get-starknet-wallet-standard/features"` — the package root declares it locally but does not export it (TS2459).
+- The wallet-standard feature version (`starknet:walletApi` → `"1.0.0"`) does **not** flag STRK20 support. Detect capability at runtime: probe a read-only call (`strk20Balances([])` in try/catch) or check `wallet_supportedSpecs`.
+- `strk20InvokeTransaction(actions)` takes an **array** of actions — several private transfers batch into one wallet request (multicall-style settlements work).
 
 ## Gotchas for the plan
 

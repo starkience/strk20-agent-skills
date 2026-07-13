@@ -30,10 +30,11 @@ Scope: Starknet apps.
 
 ## Status
 
-**v0.3.0** — Ask & Plan & Execute. Statuses as of mid-July 2026, post the July 8, 2026 open-source launch. The [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is public (Apache 2.0) and the skill treats it as an official resource — quickstart at [`sdk/README.md`](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md), verified anonymizer reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`). The skill still instructs agents to re-verify fast-moving items (wallet readiness, npm versions, repo paths) before finalizing a plan. `LAUNCH-DAY-UPDATE.md` is completed and kept for provenance.
+**v0.3.3** — Ask & Plan & Execute. Statuses as of mid-July 2026, post the July 8, 2026 open-source launch. The [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is public (Apache 2.0) and the skill treats it as an official resource — quickstart at [`sdk/README.md`](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md), verified anonymizer reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`). The skill still instructs agents to re-verify fast-moving items (wallet readiness, npm versions, repo paths) before finalizing a plan. `LAUNCH-DAY-UPDATE.md` is completed and kept for provenance.
 
 ## Changelog
 
+- **v0.3.3** (2026-07-13) — output/tone constraints promoted to highest-priority rule; verified integration gotchas from a full simulated run (type-import subpath, runtime STRK20 capability probe, action batching, wallet-mediated `strk20Balances` reads).
 - **v0.3.2** (2026-07-13) — core output/tone constraints for every skill message: concise, answer-first, ≤3 sentences of prose unless asked, no filler, bullets only where needed.
 - **v0.3.1** (2026-07-13) — plan walkthrough now opens with the integration problem summarized in 3–6 plain bullets (first-use feedback from a simulated run).
 - **v0.3.0** (2026-07-13) — Ask & Plan & Execute: new Step 5 executes the approved plan phase by phase (app code only, never Cairo; phase-gate handoffs with manual wallet checks; new `references/execute.md`), plus strk20-by-example.org deep links throughout chat output.
