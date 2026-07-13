@@ -70,7 +70,7 @@ Generated <date> by the strk20-privacy-integration skill. Statuses below were cu
 
 ## 11. Links
 
-<Relevant subset of references/links.md, with versions.>
+<Relevant subset of references/links.md, with versions, plus the strk20-by-example.org pages for the chosen route (deep-link map in references/links.md — never the escrow page).>
 ```
 
-After writing the file, summarize it to the developer in chat: the route, the one-sentence why, and the very next action they can take today. Then stop — do not start implementing, installing packages, or generating contracts. Offer to begin Phase 1 and wait for their go-ahead.
+After writing the file, summarize it to the developer in chat: the route, the one-sentence why, and the very next action they can take today — including the strk20-by-example.org links for the chosen route. Then stop — do not start implementing, installing packages, or generating contracts until the developer approves the plan. On approval, move to Step 5 (Execute) of `SKILL.md`: phases run one at a time and are marked off in this file (`✅ done <date>` on the phase heading, drift and blockers under Open items) per the plan-file conventions in `references/execute.md`.
