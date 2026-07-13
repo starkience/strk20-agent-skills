@@ -30,10 +30,24 @@ Scope: Starknet apps.
 
 ## Status
 
-**v0.3.3** — Ask & Plan & Execute. Statuses as of mid-July 2026, post the July 8, 2026 open-source launch. The [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is public (Apache 2.0) and the skill treats it as an official resource — quickstart at [`sdk/README.md`](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md), verified anonymizer reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`). The skill still instructs agents to re-verify fast-moving items (wallet readiness, npm versions, repo paths) before finalizing a plan.
+**v1.0.0** — Ask & Plan & Execute. Statuses as of mid-July 2026, post the July 8, 2026 open-source launch. The [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is public (Apache 2.0) and the skill treats it as an official resource — quickstart at [`sdk/README.md`](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md), verified anonymizer reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`). The skill still instructs agents to re-verify fast-moving items (wallet readiness, npm versions, repo paths) before finalizing a plan.
+
+## Security & trust
+
+Skills run with your agent's permissions, so here is what this skill guarantees about its own behavior (enforced in `SKILL.md` at point of use):
+
+- **No code changes before you approve the plan.** The skill writes `STRK20_INTEGRATION_PLAN.md`, stops, and executes only after your explicit approval — then phase by phase, with a manual wallet check between phases.
+- **Never generates or edits Cairo contracts.** Anonymizer contracts remain your team's code to write, review, and audit; the skill only points at the public reference packages.
+- **Never writes key material.** Viewing keys, private keys, and secrets never land in files — env-var placeholders only. Your dapp never touches viewing keys on any recommended route.
+- **Testnet by default.** Mainnet-affecting changes require your explicit confirmation at that moment.
+
+## Maintainer
+
+[@starkience](https://github.com/starkience). Statuses are re-verified on the standing refresh triggers: Xverse dapp-facing Wallet API ships, sub-accounts go builder-facing, `starknet` / get-starknet version or dist-tag changes.
 
 ## Changelog
 
+- **v1.0.0** (2026-07-13) — official release: Apache-2.0 license, Security & trust section, named maintainer, internal launch checklist removed.
 - **v0.3.3** (2026-07-13) — output/tone constraints promoted to highest-priority rule; verified integration gotchas from a full simulated run (type-import subpath, runtime STRK20 capability probe, action batching, wallet-mediated `strk20Balances` reads).
 - **v0.3.2** (2026-07-13) — core output/tone constraints for every skill message: concise, answer-first, ≤3 sentences of prose unless asked, no filler, bullets only where needed.
 - **v0.3.1** (2026-07-13) — plan walkthrough now opens with the integration problem summarized in 3–6 plain bullets (first-use feedback from a simulated run).
