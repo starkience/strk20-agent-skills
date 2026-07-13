@@ -59,3 +59,7 @@ From the repo scan, identify and name:
 - Fees: wallet flows currently sponsor gas but not pool fees; the fee UX is still being designed. Flag as re-check-at-build-time.
 - Deposit/withdrawal amounts stay public (they're the ERC-20 legs) — don't design UX copy that implies otherwise.
 - The pool enforces deposit screening onchain — a deposit can be declined by screening; surface that state in UX rather than treating it as an error bug.
+
+## Executing this route (Step 5)
+
+At each phase handoff use the **Wallet API route** manual checklist in `references/execute.md`. By-example pages to link during interview, plan walkthrough, and handoffs: https://strk20-by-example.org/starknet-wallet-api/overview, https://strk20-by-example.org/starknet-wallet-api/starknet-js, and for React apps https://strk20-by-example.org/starknet-wallet-api/starknet-start-hook.

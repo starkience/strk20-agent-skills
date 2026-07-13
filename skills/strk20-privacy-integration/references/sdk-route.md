@@ -30,6 +30,10 @@ Also relevant:
 
 Design questions the plan must still answer before the first line of SDK code: account and key-custody design (where the viewing key lives, who can read it), proving strategy (hosted service vs self-hosted — self-hosting is an infra commitment and is **still subject to onchain deposit screening**, never a workaround), and which flows to build first (register → shield → private transfer is the canonical first flow).
 
+## Executing this route (Step 5)
+
+At each phase handoff use the **SDK route** manual checklist in `references/execute.md` (env/key-custody check first — no secrets in the diff, ever). By-example pages to link: https://strk20-by-example.org/sdk/getting-started, https://strk20-by-example.org/sdk/setup-requirements, and the per-operation pages (`/sdk/register`, `/sdk/deposit`, `/sdk/transfer`, `/sdk/withdraw`, `/sdk/proving-config`, …) as each flow comes up.
+
 ## Sub-accounts (Branch D) — coming soon
 
 Private sub-accounts are the upcoming path for acting through real Starknet accounts with **no public onchain link** to the user's main wallet or to each other. Intended result: everyday DeFi — borrowing, staking, swapping — with the user↔account link hidden, while the dapp action and amounts may still be public.
