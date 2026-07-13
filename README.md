@@ -34,6 +34,7 @@ Scope: Starknet apps.
 
 ## Changelog
 
+- **v0.3.2** (2026-07-13) — core output/tone constraints for every skill message: concise, answer-first, ≤3 sentences of prose unless asked, no filler, bullets only where needed.
 - **v0.3.1** (2026-07-13) — plan walkthrough now opens with the integration problem summarized in 3–6 plain bullets (first-use feedback from a simulated run).
 - **v0.3.0** (2026-07-13) — Ask & Plan & Execute: new Step 5 executes the approved plan phase by phase (app code only, never Cairo; phase-gate handoffs with manual wallet checks; new `references/execute.md`), plus strk20-by-example.org deep links throughout chat output.
 - **v0.2.0** (2026-07-13) — post-launch statuses: SDK monorepo + anonymizer examples flipped to live with verified paths; SDK route now buildable; pinned-version notes refreshed (starknet.js STRK20 releases live on the npm `next` tag).

@@ -19,6 +19,14 @@ The loop:
 
 Before starting, read `references/concepts.md` — what STRK20 hides, what stays visible, and mandatory wording rules; nothing you say or plan may contradict it. Consult `references/starknet-dev-context.md` (the full Starknet toolchain map, wrapper-library compatibility warnings, greenfield guidance) during the scan whenever the checklist below isn't enough.
 
+**Output and tone (all steps — every message the skill produces):**
+
+- Be concise. Lead with the answer, not the reasoning.
+- Keep prose under 3 sentences unless the developer explicitly asks you to elaborate.
+- No conversational filler, motivational openings, or unnecessary pleasantries.
+- Only use bullet points or headers when necessary for readability (the snapshot, the integration-problem summary, checklists — yes; everything else defaults to short prose).
+- Do not explain how you reached an answer unless requested.
+
 **Linking rule (all steps):** https://strk20-by-example.org/ is the official by-example tutorial site. Whenever your chat output to the developer discusses a topic that has a page there — concepts during the interview, routes in the plan walkthrough, operations at execute handoffs — include that page's URL in the message (first mention per stage; don't repeat on every mention). The topic→URL map is the "strk20-by-example.org deep links" section of `references/links.md`. Never cite `/helpers/escrow` (see the exclusion note there).
 
 ## Scope (current version)
