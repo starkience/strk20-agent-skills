@@ -1,11 +1,11 @@
 ---
 name: strk20-privacy-integration
-description: Ask-and-plan skill for adding STRK20 privacy to a Starknet project. Use when a developer wants to add privacy to the Starknet app open in this session — private/shielded transfers, confidential balances, private payments, private swaps or DeFi, hiding user↔account links — or mentions STRK20, privacy pool, shielding, viewing keys, or the Privacy Wallet API. Inspects the open repo, interviews the developer, picks the right integration route, and writes a repo-specific integration plan.
+description: Ask, plan & execute skill for adding STRK20 privacy to a Starknet project. Use when a developer wants to add privacy to the Starknet app open in this session — private/shielded transfers, confidential balances, private payments, private swaps or DeFi, hiding user↔account links — mentions STRK20, privacy pool, shielding, viewing keys, or the Privacy Wallet API, or wants an existing STRK20_INTEGRATION_PLAN.md executed. Inspects the open repo, interviews the developer, picks the right integration route, writes a repo-specific integration plan, and — after the developer approves it — executes the plan phase by phase (app code only, never Cairo contracts).
 ---
 
 # STRK20 Privacy Integration Planner
 
-This is an **ask-and-plan** skill. You are running inside the developer's own project. Your deliverable is not code — it is a conversation that converges on the right integration route, followed by a concrete, repo-specific plan written to `STRK20_INTEGRATION_PLAN.md`. Everything you ask and everything you plan should be grounded in what is actually in the open repo.
+This is an **ask, plan & execute** skill. You are running inside the developer's own project. Your first deliverable is a conversation that converges on the right integration route and a concrete, repo-specific plan written to `STRK20_INTEGRATION_PLAN.md`; code changes begin only after the developer approves that plan (Step 5). Everything you ask, plan, and build should be grounded in what is actually in the open repo.
 
 STRK20 is a live-on-mainnet, note-based (UTXO) privacy pool for any ERC-20 on Starknet — not a mixer. Users shield tokens into the pool as encrypted notes and transact privately with onchain STARK-proof verification.
 
@@ -15,8 +15,11 @@ The loop:
 2. **Ask** — a short, adaptive interview; confirm what you detected, ask only what the repo can't tell you.
 3. **Route** — map their answers to one of four integration routes.
 4. **Plan** — write `STRK20_INTEGRATION_PLAN.md`, naming their real files and modules.
+5. **Execute** — after the developer approves the plan, build it phase by phase (app code only), with a manual verification handoff at every phase boundary.
 
 Before starting, read `references/concepts.md` — what STRK20 hides, what stays visible, and mandatory wording rules; nothing you say or plan may contradict it. Consult `references/starknet-dev-context.md` (the full Starknet toolchain map, wrapper-library compatibility warnings, greenfield guidance) during the scan whenever the checklist below isn't enough.
+
+**Linking rule (all steps):** https://strk20-by-example.org/ is the official by-example tutorial site. Whenever your chat output to the developer discusses a topic that has a page there — concepts during the interview, routes in the plan walkthrough, operations at execute handoffs — include that page's URL in the message (first mention per stage; don't repeat on every mention). The topic→URL map is the "strk20-by-example.org deep links" section of `references/links.md`. Never cite `/helpers/escrow` (see the exclusion note there).
 
 ## Scope (current version)
 
@@ -59,7 +62,7 @@ This is the heart of the skill. Rules:
 
 Stop asking as soon as the route is unambiguous. Do not proceed to the plan while the privacy goal is still vague — "add privacy" is not a goal; "hide who pays whom" is.
 
-**Close the interview with a what-happens-next message.** Before writing anything, tell the developer explicitly what comes next, e.g.: "Thanks — I have what I need. Next I'll write `STRK20_INTEGRATION_PLAN.md` into your repo root. That's a plan, not code: I won't modify your app, install packages, or build any contracts (an anonymizer contract in particular is your team's own code to build, review, and audit — this skill never generates it for you). Review the plan, and when you're ready we start with Phase 1." Never jump from the questionnaire straight into implementation.
+**Close the interview with a what-happens-next message.** Before writing anything, tell the developer explicitly what comes next, e.g.: "Thanks — I have what I need. Next I'll write `STRK20_INTEGRATION_PLAN.md` into your repo root. Nothing in your app changes until you review and approve that plan. Once you approve it, I execute it phase by phase — app code only: I can install packages and wire your frontend or backend, but an anonymizer contract is your team's own code to build, review, and audit — this skill never generates it for you. Each phase ends with a short manual check you run with your wallet before we continue." Never jump from the questionnaire straight into implementation.
 
 ## Step 3 — Route
 
@@ -85,6 +88,26 @@ Write `STRK20_INTEGRATION_PLAN.md` to the repo root following `references/plan-t
 - **Phased**: something buildable this week first (connect + first shielded flow on the Wallet API route), then feature integration, then coming-soon pieces as tracked items with entry criteria ("when the SDK repo is public, do X").
 - **Versioned**: exact package versions from `references/links.md`; get-starknet v6.x is on the npm `next` tag so versions must be explicit.
 - **Next steps beyond code**: testing against the Ready extension and the wallet test dapp; and for anonymizer contracts, the team owns review, audit, deployment, and maintenance — put an audit step in the plan.
+
+## Step 5 — Execute (only after the plan is approved)
+
+Execution starts only when the developer has reviewed `STRK20_INTEGRATION_PLAN.md` and explicitly approved it (or asks you to execute an existing plan). Never roll from Step 4 into Step 5 on your own. When resuming a session with an existing plan, re-verify staleness first — npm versions/dist-tags, monorepo paths, wallet statuses per `references/links.md` — and surface any drift before building.
+
+Read `references/execute.md` before the first phase — it holds the full loop, per-stack verification commands, the manual checklist templates, and the failure protocol. The shape:
+
+1. **Re-verify before building** — fetch the WalletAccount guide for the current API (never guess method names); confirm package versions; check the SDK monorepo if the phase touches it.
+2. **Make the phase's changes** exactly as scoped in the plan, following the repo's existing conventions.
+3. **Verify headlessly** — clean install, build/typecheck passes, existing tests pass; add tests where the repo already has a test setup.
+4. **Mark the phase in the plan file** (status + date) so the plan stays the single source of truth across sessions.
+5. **Hand off and stop** — give the developer the phase's manual verification checklist, with the matching strk20-by-example.org links, and wait for confirmation before the next phase.
+
+**Execution guardrails (non-negotiable):**
+
+- **App code only — never Cairo.** If a phase calls for an anonymizer contract, deliver design guidance and point at the public reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`); the team writes, reviews, audits, deploys, and maintains its own contract.
+- **No key material.** Never write viewing keys, private keys, or other secrets into files — env-var placeholders only. If a step seems to need a user's viewing key, the route is wrong: go back to Step 3.
+- **Testnet by default.** Mainnet-affecting changes need the developer's explicit confirmation at that moment.
+- **Graceful degradation is part of Phase 1**, not optional — detect wallets without privacy support and degrade per `references/wallet-api-route.md`.
+- **UX copy written during execution follows `references/concepts.md`** — honest hidden-vs-visible labeling, no compliance framing, no screening-workaround framing.
 
 ## Accuracy rules (mandatory — plans are public-facing copy)
 
