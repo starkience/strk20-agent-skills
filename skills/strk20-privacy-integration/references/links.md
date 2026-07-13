@@ -28,6 +28,31 @@ Single source of truth for the plan's Links section. Statuses as of mid-July 202
 | Private sub-accounts | Wallet + SDK + extra Wallet API call still required (the `sub_account_anonymizer` contract package is already visible in the monorepo, but there is nothing builder-facing yet) | Track announcements |
 | Xverse dapp-facing Wallet API | In progress (as of mid-July 2026) | Re-check status |
 
+## strk20-by-example.org deep links
+
+https://strk20-by-example.org/ is the official by-example tutorial site. Whenever chat output to the developer discusses one of these topics, include the matching URL in the message (first mention per conversation stage; don't repeat on every mention). Routes verified against the site 2026-07-13.
+
+| When you talk about… | Link |
+|---|---|
+| What STRK20 is / the pool model | https://strk20-by-example.org/what-is-strk20 |
+| Notes, nullifiers, the UTXO model | https://strk20-by-example.org/notes-and-nullifiers |
+| Viewing keys / encryption | https://strk20-by-example.org/viewing-keys |
+| Channels & subchannels | https://strk20-by-example.org/channels-and-subchannels |
+| Actions, phases, proofs | https://strk20-by-example.org/actions-and-proofs |
+| Compliance, screening, selective disclosure | https://strk20-by-example.org/compliance |
+| Builder-facing privacy overview | https://strk20-by-example.org/builder-privacy-overview |
+| Wallet API route (Branch C) generally | https://strk20-by-example.org/starknet-wallet-api/overview |
+| starknet.js wiring / `WalletAccountV6` | https://strk20-by-example.org/starknet-wallet-api/starknet-js |
+| React apps / `useStrk20` hooks | https://strk20-by-example.org/starknet-wallet-api/starknet-start-hook |
+| SDK route (Branch A) getting started | https://strk20-by-example.org/sdk/getting-started |
+| SDK setup requirements | https://strk20-by-example.org/sdk/setup-requirements |
+| SDK operations: register, deposit, transfer, withdraw, deposit-transfer-surplus, multi-op-batch, note-discovery, discovery-providers, proving-config | `https://strk20-by-example.org/sdk/<same-slug>` |
+| Anonymizer anatomy / `privacy_invoke` (Branch B) | https://strk20-by-example.org/helpers/privacy-invoke |
+| Swap anonymizer example | https://strk20-by-example.org/helpers/swap-helper |
+| Lending/vault anonymizer example | https://strk20-by-example.org/helpers/vesu-lending-helper |
+
+**Exclusion — do not cite:** `https://strk20-by-example.org/helpers/escrow`. The page references a `packages/escrow` that does not exist in the SDK monorepo (verified absent 2026-07-13). Re-check on future runs; lift this only when the repo actually ships an escrow package.
+
 ## Support
 
 - Cairo CoreStars Telegram: `@sncorestars`
