@@ -81,7 +81,7 @@ Read the matching reference file(s) before writing the plan. `references/links.m
 
 ## Step 4 — Plan
 
-Write `STRK20_INTEGRATION_PLAN.md` to the repo root following `references/plan-template.md`, then walk the developer through it in chat (route chosen, why, and the first buildable step). If the file already exists from a previous run, read it and update it in place — preserve decisions the team already made and mark what changed — rather than overwriting. Requirements:
+Write `STRK20_INTEGRATION_PLAN.md` to the repo root following `references/plan-template.md`, then walk the developer through it in chat — opening with **the integration problem in 3–6 plain bullets** (what's public in their app today, what they want private, and what stands in the way: version gaps, wallet coverage, UX shifts), followed by the route chosen, why, and the first buildable step. If the file already exists from a previous run, read it and update it in place — preserve decisions the team already made and mark what changed — rather than overwriting. Requirements:
 
 - **Repo-specific**: name the actual files/modules where wallet connection, transaction sending, and (if DeFi) contract interactions live, and say what changes in each. A plan that could have been written without the scan is a failed plan.
 - **Honest about what's hidden vs visible**: include the hidden/visible table from `references/concepts.md`, adapted to their flows.
