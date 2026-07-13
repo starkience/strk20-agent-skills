@@ -30,7 +30,12 @@ Scope: Starknet apps.
 
 ## Status
 
-Current version reflects tooling statuses as of early July 2026 (pre open-source launch of the Privacy SDK monorepo). The skill instructs agents to re-verify fast-moving items before finalizing a plan. Maintainers: see `LAUNCH-DAY-UPDATE.md` for the pending status flips.
+**v0.2.0** — statuses as of mid-July 2026, post the July 8, 2026 open-source launch. The [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is public (Apache 2.0) and the skill treats it as an official resource — quickstart at [`sdk/README.md`](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md), verified anonymizer reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`). The skill still instructs agents to re-verify fast-moving items (wallet readiness, npm versions, repo paths) before finalizing a plan. `LAUNCH-DAY-UPDATE.md` is completed and kept for provenance.
+
+## Changelog
+
+- **v0.2.0** (2026-07-13) — post-launch statuses: SDK monorepo + anonymizer examples flipped to live with verified paths; SDK route now buildable; pinned-version notes refreshed (starknet.js STRK20 releases live on the npm `next` tag).
+- **v0.1.0** (2026-07-06) — initial release (pre-launch statuses), plus first-use feedback.
 
 ## Contributing
 

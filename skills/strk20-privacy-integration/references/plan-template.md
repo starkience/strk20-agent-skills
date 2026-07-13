@@ -50,8 +50,8 @@ Generated <date> by the strk20-privacy-integration skill. Statuses below were cu
 
 ## 7. Phase 3 — <anonymizer contract / SDK adoption / sub-accounts> (tracked, with entry criteria)
 
-- Entry criterion: <e.g. "SDK repo public at github.com/starkware-libs/starknet-privacy">
-- <Design-now items already done on paper; build steps once open>
+- Entry criterion: <e.g. "sub-accounts become builder-facing (wallet + SDK + Wallet API support)" or "Xverse dapp-facing Wallet API ships" — the SDK monorepo itself is already public>
+- <Design-now items already done on paper; build steps once the criterion is met>
 - <Branch B: audit step — owner, before mainnet, non-negotiable>
 
 ## 8. Testing
@@ -66,7 +66,7 @@ Generated <date> by the strk20-privacy-integration skill. Statuses below were cu
 
 ## 10. Open items to re-verify at build time
 
-- <SDK repo public? Xverse status? wrapper-library compat? fee/paymaster design?>
+- <Xverse status? sub-accounts builder-facing yet? wrapper-library compat? fee/paymaster design? current `starknet` dist-tags?>
 
 ## 11. Links
 

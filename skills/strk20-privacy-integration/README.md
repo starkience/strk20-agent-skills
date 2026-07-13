@@ -6,7 +6,7 @@ Drop it into the agent running in your project repo and ask it to "plan STRK20 p
 
 1. **Scans your repo** — detects your Starknet stack (starknet.js, get-starknet, starknet-react, Scarb/Cairo contracts, Starknet Foundry, backend SDKs) and finds the plug-in points.
 2. **Interviews you** — a short, adaptive set of questions (builder type, what exactly should be private, environment) instead of a generic questionnaire.
-3. **Picks your route** — Privacy Wallet API via starknet.js (most dapps, buildable now), anonymizer contract + Wallet API (DeFi protocols), Privacy SDK direct (wallets/backends with their own keys, coming soon), or private sub-accounts (coming soon).
+3. **Picks your route** — Privacy Wallet API via starknet.js (most dapps, buildable now), anonymizer contract + Wallet API (DeFi protocols, reference examples public), Privacy SDK direct (wallets/backends with their own keys, buildable now — the [SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is open source), or private sub-accounts (coming soon).
 4. **Writes `STRK20_INTEGRATION_PLAN.md`** — phased, versioned, honest about what's hidden vs visible, naming your actual files.
 
 Scope: **Starknet apps only** for now. On the roadmap for later versions: EVM wallet support, prediction-market-type (Polymarket-style) app flows, and frontend design guidance for privacy UX.
@@ -22,4 +22,4 @@ Scope: **Starknet apps only** for now. On the roadmap for later versions: EVM wa
 - `references/links.md` — all links and pinned versions
 - `references/plan-template.md` — the output plan template
 
-Statuses baked into this skill are as of early July 2026; the skill instructs the agent to re-verify fast-moving items (SDK repo publicity, wallet readiness, package versions) before finalizing a plan.
+Statuses baked into this skill are as of mid-July 2026, after the July 8, 2026 open-source launch of the [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) ([quickstart](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md)); the skill instructs the agent to re-verify fast-moving items (wallet readiness, package versions, repo paths) before finalizing a plan.

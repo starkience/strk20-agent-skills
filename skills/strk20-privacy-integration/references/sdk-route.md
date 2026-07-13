@@ -1,4 +1,4 @@
-# Route: Privacy SDK direct (wallets & advanced integrators) — coming soon
+# Route: Privacy SDK direct (wallets & advanced integrators) — buildable now
 
 The low-level route for teams that control their own account, prover, and viewing-key setup and want to interact with the pool directly instead of through a user's wallet.
 
@@ -20,15 +20,15 @@ A TypeScript client (Apache 2.0) covering every step of working with STRK20 priv
 
 ## Status and what to do today
 
-The SDK repo opens after the v0.14.3/onchain-screening upgrade — **check whether `github.com/starkware-libs/starknet-privacy` is public before writing the plan**; if it is, the plan's SDK steps become buildable-now and the repo's own README/quickstart supersedes this file's expectations.
+**The SDK monorepo is public** (Apache 2.0, open-sourced Jul 8, 2026): https://github.com/starkware-libs/starknet-privacy — treat it as the official resource for this route. Start from the quickstart in **https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md** (don't restate it in the plan; link it — it supersedes anything this file says about setup). Package: `@starkware-libs/starknet-privacy-sdk` on the GitHub npm registry; **Node ≥ 24** required.
 
-Readable today regardless:
+Also relevant:
 
 - **Privacy Wallet API spec v0.10.3** — if the team is a wallet, this is the dapp-facing surface they'll eventually expose: https://github.com/starkware-libs/starknet-specs/releases/tag/v0.10.3
 - **Prover Crate** (open source) — for teams planning self-hosted proving: https://github.com/starkware-libs/sequencer/tree/main/crates/starknet_transaction_prover
 - **Whitepaper**: https://eprint.iacr.org/2026/474
 
-Plan-able today: account and key-custody design (where the viewing key lives, who can read it), proving strategy (hosted service vs self-hosted — self-hosting is an infra commitment and is **still subject to onchain deposit screening**, never a workaround), and which flows to build first (register → shield → private transfer is the canonical first flow).
+Design questions the plan must still answer before the first line of SDK code: account and key-custody design (where the viewing key lives, who can read it), proving strategy (hosted service vs self-hosted — self-hosting is an infra commitment and is **still subject to onchain deposit screening**, never a workaround), and which flows to build first (register → shield → private transfer is the canonical first flow).
 
 ## Sub-accounts (Branch D) — coming soon
 
@@ -36,6 +36,6 @@ Private sub-accounts are the upcoming path for acting through real Starknet acco
 
 Planned flow: wallet shields funds into the pool → a sub-account anonymizer creates and directs sub-accounts → each sub-account interacts with dapps like a normal account → funds return to the pool, shielded again.
 
-**Status**: coming soon. Contract work exists; wallet support, SDK support, and an additional Privacy Wallet API call are on the way before builder-facing integration opens. There is nothing for builders to ship yet.
+**Status**: coming soon. The contract work is visible in the public monorepo (`packages/sub_account_anonymizer`), but wallet support, SDK support, and an additional Privacy Wallet API call are still on the way before builder-facing integration opens. There is nothing for builders to ship yet.
 
 **What a plan does with Branch D**: scope and track. Identify which of the team's flows want unlinkable accounts (e.g. private collateral positions, private staking), note them as sub-account candidates with an entry criterion ("when sub-accounts become available to builders"), and route everything buildable today through Branches A–C. Do not name specific partner protocols as launch examples.
