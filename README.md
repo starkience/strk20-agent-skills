@@ -30,7 +30,7 @@ Scope: Starknet apps.
 
 ## Status
 
-**v1.0.0** — Ask & Plan & Execute. Statuses as of mid-July 2026, post the July 8, 2026 open-source launch. The [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is public (Apache 2.0) and the skill treats it as an official resource — quickstart at [`sdk/README.md`](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md), verified anonymizer reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`). The skill still instructs agents to re-verify fast-moving items (wallet readiness, npm versions, repo paths) before finalizing a plan.
+**v1.0.1** — Ask & Plan & Execute. Statuses as of mid-July 2026, post the July 8, 2026 open-source launch. The [Privacy SDK monorepo](https://github.com/starkware-libs/starknet-privacy) is public (Apache 2.0) and the skill treats it as an official resource — quickstart at [`sdk/README.md`](https://github.com/starkware-libs/starknet-privacy/blob/main/sdk/README.md), verified anonymizer reference packages (`packages/ekubo_swap_anonymizer`, `packages/vesu_lending_anonymizer`). The skill still instructs agents to re-verify fast-moving items (wallet readiness, npm versions, repo paths) before finalizing a plan.
 
 ## Security & trust
 
@@ -47,6 +47,7 @@ Skills run with your agent's permissions, so here is what this skill guarantees 
 
 ## Changelog
 
+- **v1.0.1** (2026-07-15) — agents now read strk20-by-example.org via its raw-Markdown mirrors (`<route>.md`, `/llms.txt`); chat links for humans stay the rendered routes.
 - **v1.0.0** (2026-07-13) — official release: Apache-2.0 license, Security & trust section, named maintainer, internal launch checklist removed.
 - **v0.3.3** (2026-07-13) — output/tone constraints promoted to highest-priority rule; verified integration gotchas from a full simulated run (type-import subpath, runtime STRK20 capability probe, action batching, wallet-mediated `strk20Balances` reads).
 - **v0.3.2** (2026-07-13) — core output/tone constraints for every skill message: concise, answer-first, ≤3 sentences of prose unless asked, no filler, bullets only where needed.

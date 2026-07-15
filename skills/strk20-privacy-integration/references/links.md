@@ -32,6 +32,8 @@ Single source of truth for the plan's Links section. Statuses as of mid-July 202
 
 https://strk20-by-example.org/ is the official by-example tutorial site. Whenever chat output to the developer discusses one of these topics, include the matching URL in the message (first mention per conversation stage; don't repeat on every mention). Routes verified against the site 2026-07-13.
 
+**Reading the site yourself:** the rendered routes are a JS app — fetching them returns an empty shell. When *you* need a page's content, append `.md` to any route below (e.g. `https://strk20-by-example.org/starknet-wallet-api/starknet-js.md`) for the raw-Markdown mirror; `https://strk20-by-example.org/llms.txt` indexes all pages and `/llms-full.txt` is the whole site in one fetch. Links you drop in chat stay the clean routes — those are for the human.
+
 | When you talk about… | Link |
 |---|---|
 | What STRK20 is / the pool model | https://strk20-by-example.org/what-is-strk20 |
